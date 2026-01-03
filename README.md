@@ -244,7 +244,7 @@ This project is open source and available for educational purposes.
 
 Created as a demonstration of real-world neural network applications using Python and modern web technologies.
 
-## 🙏 Acknowledgments
+## 🙏 Acknowledgments ???
 
 - **TensorFlow** for deep learning framework
 - **Keras** for high-level neural network API
@@ -258,3 +258,4 @@ Created as a demonstration of real-world neural network applications using Pytho
 
 **Enjoy exploring the world of AI and neural networks! 🧠✨**
 # Neural-Network-Visualization
+#haveaniceday

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-Powered Neural Network Application - Handwritten digit recognition, image classification, sentiment analysis, and predictive analytics powered by deep learning">
+    <meta name="keywords" content="neural network, AI, machine learning, deep learning, digit recognition, image classification, sentiment analysis">
+    <meta name="author" content="Neural Network Project">
+    <title>AI Neural Network Hub | Real-World ML Applications</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">🧠</span>
+                    <span class="logo-text">AI Neural Network Hub</span>
+                </h1>
+                <p class="tagline">Real-World Machine Learning Applications</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Feature Cards Grid -->
+            <div class="features-grid">
+                
+                <!-- Digit Recognition -->
+                <div class="feature-card" id="digit-recognition-card">
+                    <div class="card-header">
+                        <div class="card-icon">✍️</div>
+                        <h2>Handwritten Digit Recognition</h2>
+                        <p>Draw a digit and watch AI recognize it in real-time</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="canvas-container">
+                            <canvas id="drawing-canvas" width="280" height="280"></canvas>
+                            <div class="canvas-controls">
+                                <button id="clear-canvas" class="btn btn-secondary">Clear</button>
+                                <button id="predict-digit" class="btn btn-primary">Recognize</button>
+                            </div>
+                        </div>
+                        <div id="digit-results" class="results-container hidden">
+                            <h3>Prediction Results</h3>
+                            <div class="prediction-main">
+                                <span class="prediction-label">Predicted Digit:</span>
+                                <span id="predicted-digit" class="prediction-value">-</span>
+                                <span id="digit-confidence" class="confidence-badge">-</span>
+                            </div>
+                            <div class="confidence-bars" id="digit-confidence-bars"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Classification -->
+                <div class="feature-card" id="image-classification-card">
+                    <div class="card-header">
+                        <div class="card-icon">🖼️</div>
+                        <h2>Image Classification</h2>
+                        <p>Upload any image to identify objects and scenes</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="upload-container" id="image-upload-zone">
+                            <div class="upload-icon">📁</div>
+                            <p class="upload-text">Drag & drop an image or click to browse</p>
+                            <input type="file" id="image-file-input" accept="image/*" hidden>
+                            <button id="browse-image" class="btn btn-primary">Browse Files</button>
+                        </div>
+                        <div id="image-preview-container" class="preview-container hidden">
+                            <img id="image-preview" alt="Preview">
+                            <button id="classify-image" class="btn btn-primary">Classify Image</button>
+                        </div>
+                        <div id="image-results" class="results-container hidden">
+                            <h3>Classification Results</h3>
+                            <div id="image-predictions" class="predictions-list"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sentiment Analysis -->
+                <div class="feature-card" id="sentiment-analysis-card">
+                    <div class="card-header">
+                        <div class="card-icon">💬</div>
+                        <h2>Sentiment Analysis</h2>
+                        <p>Analyze emotions and sentiment in text</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="text-input-container">
+                            <textarea 
+                                id="sentiment-text" 
+                                placeholder="Enter text to analyze sentiment... (e.g., product review, tweet, feedback)"
+                                maxlength="5000"
+                            ></textarea>
+                            <div class="text-info">
+                                <span id="char-count">0 / 5000</span>
+                            </div>
+                            <button id="analyze-sentiment" class="btn btn-primary">Analyze Sentiment</button>
+                        </div>
+                        <div id="sentiment-results" class="results-container hidden">
+                            <h3>Sentiment Analysis</h3>
+                            <div class="sentiment-main">
+                                <span class="sentiment-label">Sentiment:</span>
+                                <span id="sentiment-value" class="sentiment-badge">-</span>
+                                <span id="sentiment-confidence" class="confidence-badge">-</span>
+                            </div>
+                            <div class="sentiment-breakdown" id="sentiment-breakdown"></div>
+                            <div id="emotions-container" class="emotions-container hidden">
+                                <h4>Detected Emotions</h4>
+                                <div id="emotions-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Predictive Analytics -->
+                <div class="feature-card" id="predictive-analytics-card">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <h2>Predictive Analytics</h2>
+                        <p>Train custom models on your data</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="upload-container" id="data-upload-zone">
+                            <div class="upload-icon">📈</div>
+                            <p class="upload-text">Upload CSV data to train a custom model</p>
+                            <input type="file" id="data-file-input" accept=".csv" hidden>
+                            <button id="browse-data" class="btn btn-primary">Upload CSV</button>
+                        </div>
+                        <div id="data-config-container" class="config-container hidden">
+                            <h4>Model Configuration</h4>
+                            <div class="form-group">
+                                <label for="target-column">Target Column:</label>
+                                <input type="text" id="target-column" placeholder="e.g., price, category">
+                            </div>
+                            <div class="form-group">
+                                <label for="task-type">Task Type:</label>
+                                <select id="task-type">
+                                    <option value="regression">Regression</option>
+                                    <option value="classification">Classification</option>
+                                </select>
+                            </div>
+                            <button id="train-model" class="btn btn-primary">Train Model</button>
+                        </div>
+                        <div id="predictive-results" class="results-container hidden">
+                            <h3>Training Results</h3>
+                            <div id="training-metrics"></div>
+                            <div id="training-visualizations"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Neural Network Visualization Panel -->
+            <div class="visualization-panel" id="network-viz-panel">
+                <h2>Neural Network Visualization</h2>
+                <div id="network-canvas-container">
+                    <canvas id="network-canvas" width="800" height="400"></canvas>
+                </div>
+                <div class="viz-info">
+                    <p>Live visualization of neural network processing</p>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Processing...</p>
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+    
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/drawing-canvas.js"></script>
+    <script src="js/file-uploader.js"></script>
+    <script src="js/results-dashboard.js"></script>
+    <script src="js/network-visualizer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
